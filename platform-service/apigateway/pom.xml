@@ -11,9 +11,9 @@
 
     <groupId>com.epam.javacc</groupId>
     <artifactId>apigateway</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
     <name>apigateway</name>
     <description>apigateway</description>
+    <packaging>jar</packaging>
 
     <properties>
         <java.version>17</java.version>

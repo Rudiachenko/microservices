@@ -1,5 +1,7 @@
 package com.epam.common.controllers;
 
+import com.epam.common.service.PropertyReader;
+import com.epam.common.service.PropertyReaderImpl;
 import com.netflix.config.DynamicPropertyFactory;
 import com.netflix.config.DynamicStringProperty;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,44 +9,49 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class ConfigPropertiesController {
-
-    private final DynamicStringProperty eurekaPort;
-    private final DynamicStringProperty onePort;
-    private final DynamicStringProperty twoPort;
-    private final DynamicStringProperty twoApiPort;
-    private final DynamicStringProperty eurekaDefaultZone;
+    private static final String EUREKA_PORT_PROPERTY = "eureka.port";
+    private static final String ONE_PORT_PROPERTY = "one.port";
+    private static final String TWO_PORT_PROPERTY = "two.port";
+    private static final String TWO_API_PORT_PROPERTY = "two-api.port";
+    private static final String SERVICE_URL_PORT_PROPERTY = "eureka.client.service-url.defaultZone";
+    private final String eurekaPort;
+    private final String onePort;
+    private final String twoPort;
+    private final String twoApiPort;
+    private final String eurekaDefaultZone;
+    private final PropertyReader propertyReader;
 
     public ConfigPropertiesController() {
-        eurekaPort = DynamicPropertyFactory.getInstance().getStringProperty("eureka.port", "not found");
-        onePort = DynamicPropertyFactory.getInstance().getStringProperty("one.port", "not found");
-        twoPort = DynamicPropertyFactory.getInstance().getStringProperty("two.port", "not found");
-        twoApiPort = DynamicPropertyFactory.getInstance().getStringProperty("two-api.port", "not found");
-        eurekaDefaultZone = DynamicPropertyFactory.getInstance()
-                .getStringProperty("eureka.client.service-url.defaultZone", "not found");
+        propertyReader = new PropertyReaderImpl();
+        eurekaPort = propertyReader.getStringProperty(EUREKA_PORT_PROPERTY);
+        onePort = propertyReader.getStringProperty(ONE_PORT_PROPERTY);
+        twoPort = propertyReader.getStringProperty(TWO_API_PORT_PROPERTY);
+        twoApiPort = propertyReader.getStringProperty(EUREKA_PORT_PROPERTY);
+        eurekaDefaultZone = propertyReader.getStringProperty(SERVICE_URL_PORT_PROPERTY);
     }
 
     @GetMapping("/eurekaPort")
     public String getEurekaPortValue() {
-        return "Eureka port is: " + eurekaPort.getValue();
+        return "Eureka port is: " + eurekaPort;
     }
 
     @GetMapping("/onePort")
     public String getOnePortValue() {
-        return "Port for module 'One' is: " + onePort.getValue();
+        return "Port for module 'One' is: " + onePort;
     }
 
     @GetMapping("/twoPort")
     public String getTwoPortValue() {
-        return "Port for module 'Two' is: " + twoPort.getValue();
+        return "Port for module 'Two' is: " + twoPort;
     }
 
     @GetMapping("/twoApiPort")
     public String getTwoApiPortValue() {
-        return "Port for module 'Two-api' is: " + twoApiPort.getValue();
+        return "Port for module 'Two-api' is: " + twoApiPort;
     }
 
     @GetMapping("/eurekaZone")
     public String getEurekaDefaultZoneValue() {
-        return "Default zone for Eureka is: " + eurekaDefaultZone.getValue();
+        return "Default zone for Eureka is: " + eurekaDefaultZone;
     }
 }
