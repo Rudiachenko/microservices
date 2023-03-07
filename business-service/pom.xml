@@ -20,12 +20,12 @@
     <artifactId>business-service-parent</artifactId>
     <name>Java CC Micro-services Reference Example Parent (Business services)</name>
     <version>0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
 
     <properties>
         <java.version>17</java.version>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
-
-    <packaging>pom</packaging>
 </project>
+

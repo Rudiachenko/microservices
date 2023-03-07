@@ -1,18 +1,5 @@
 spring:
   application:
-    name: apigateway
+    name: common
 server:
-  port: 8080
-eureka:
-  client:
-    registerWithEureka: false
-    fetchRegistry: false
-    service-url:
-      defaultZone: http://localhost:8761/eureka
-
-zuul:
-  routes:
-    foos:
-      path: /foos/**
-      url: http://localhost:8081/spring-zuul-foos-resource/foos
-
+  port: 8077

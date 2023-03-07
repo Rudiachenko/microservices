@@ -1,5 +1,5 @@
 spring:
   application:
-    name: one
+    name: two-api
 server:
-  port: 8081
+  port: 8083

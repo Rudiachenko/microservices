@@ -1,5 +1,5 @@
 spring:
   application:
-    name: common
+    name: one
 server:
-  port: 8077
+  port: 8081

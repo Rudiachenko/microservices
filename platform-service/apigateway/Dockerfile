@@ -1,4 +1,4 @@
-FROM java:17-jre-alpine
+FROM openjdk:17-oracle
 
 VOLUME /tmp
 

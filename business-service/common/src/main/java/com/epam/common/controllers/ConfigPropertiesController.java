@@ -19,14 +19,13 @@ public class ConfigPropertiesController {
     private final String twoPort;
     private final String twoApiPort;
     private final String eurekaDefaultZone;
-    private final PropertyReader propertyReader;
 
     public ConfigPropertiesController() {
-        propertyReader = new PropertyReaderImpl();
+        PropertyReader propertyReader = new PropertyReaderImpl();
         eurekaPort = propertyReader.getStringProperty(EUREKA_PORT_PROPERTY);
         onePort = propertyReader.getStringProperty(ONE_PORT_PROPERTY);
-        twoPort = propertyReader.getStringProperty(TWO_API_PORT_PROPERTY);
-        twoApiPort = propertyReader.getStringProperty(EUREKA_PORT_PROPERTY);
+        twoPort = propertyReader.getStringProperty(TWO_PORT_PROPERTY);
+        twoApiPort = propertyReader.getStringProperty(TWO_API_PORT_PROPERTY);
         eurekaDefaultZone = propertyReader.getStringProperty(SERVICE_URL_PORT_PROPERTY);
     }
 

@@ -23,6 +23,12 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.epam.javacc.microservices</groupId>
+            <artifactId>common</artifactId>
+            <version>0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.netflix.servo</groupId>
             <artifactId>servo-core</artifactId>
             <version>0.12.21</version>
@@ -42,6 +48,12 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>com.epam.javacc.microservices</groupId>
+                <artifactId>bussiness-service-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-netflix</artifactId>
