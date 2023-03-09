@@ -1,9 +1,7 @@
-package com.epam.common.controllers;
+package com.epam.common.controller;
 
 import com.epam.common.service.PropertyReader;
 import com.epam.common.service.PropertyReaderImpl;
-import com.netflix.config.DynamicPropertyFactory;
-import com.netflix.config.DynamicStringProperty;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
